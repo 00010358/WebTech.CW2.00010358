@@ -4,10 +4,19 @@ block HRapp
 
 
   div.container
-    h1.title #{ employee.name }
-    p.description #{ employee.surname }
-    p.description #{ employee.dob }
-    p.description #{ employee.position }
-    p.description #{ employee.about }
+    h1.head-text.details-text Detailed information
+
+      div.detail-container
+
+        label Name
+        p.description #{ employee.name } 
+        label Surname
+        p.description #{ employee.surname }
+        label DoB
+        p.description #{ employee.dob }
+        label Position
+        p.description #{ employee.position }
+        label About
+        p.description #{ employee.about }
 
     

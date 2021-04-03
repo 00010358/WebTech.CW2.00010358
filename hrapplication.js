@@ -2,9 +2,10 @@
 const express = require('express')
 const hrapplication = express()
 const path = require('path')
-
 const fs = require('fs')
+
 const router = express.Router()
+
 
 
 hrapplication.set('view engine', 'pug')
@@ -198,6 +199,33 @@ hrapplication.post('/employees/edit/:id', (req, res) => {
 
 
 })
+
+
+
+// hrapplication.get('employees/delete/:id', (req, res) => {
+// 	const id = req.params.id
+
+// 	fs.readFile('./data/employees.json', (err, data) => {
+// 		if (err) throw err
+
+// 		const employees = JSON.parse(data)
+
+// 		const filteredEmployee = employees.filter(employee => employee.id != id)
+
+// 		fs.writeFile('./data/employees.json', JSON.stringify(filteredEmployee), err => {
+// 			if (err) throw err
+
+// 			res.render('employees', { id: id, employees: filteredEmployee })
+// 		})
+// 	})
+// })
+
+
+
+
+
+
+
 
 hrapplication.listen(4000, err => {
 	if (err) console.log(err)
