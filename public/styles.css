@@ -1,0 +1,152 @@
+:root {
+    font-size: 18px;
+    color: darkslategrey;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+
+    align-items: baseline;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+
+    border-bottom: 1px dotted #ccc;
+
+}
+
+.nav a {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+a:hover {
+    color: lightblue;
+}
+
+/*homepage styles*/
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+.main-text {
+    padding: 100px 0 30px 0;
+    font-size: 2rem;
+    max-width: 60%;
+
+
+}
+
+.adding-person { 
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background-color: lightblue;
+
+    color:darkslategray;
+}
+
+
+
+/*add page styles*/
+
+
+.form {
+    max-width: 60%;
+
+}
+
+.data{
+    display: block;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: inherit;
+
+    border: 1px solid lightblue;
+    width: 70%;
+    margin-bottom: 20px;
+
+}
+
+.btn {
+    display: inline-block;
+    background-color: lightblue;
+    color: darkslategray;
+    font-size: 1.3rem;
+    border:none;
+    padding:10px 20px;
+    font-family: inherit;
+
+}
+.btn:hover {
+    color: lightblue;
+}
+
+
+/*employees page*/
+
+.wrapper {
+
+    display: flex;
+    justify-content: space-between;
+    max-width: 60%;
+    padding: 10px;
+    border-bottom: 1px dotted gray;
+    align-items: center;
+}
+
+.employee {
+
+
+    font-size: 1.3rem;
+
+}
+
+.edit {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: lightblue;
+    color: darkslategray;
+
+
+}
+
+
+.err {
+    display: inline-block;
+    padding: 10px;
+    border: 1px dotted red;
+    font-size: 1.4rem;
+    color: darkslategray;
+}
+
+
+.success {
+    display: inline-block;
+    padding: 10px;
+    border: 1px dotted rgb(119, 73, 73);
+    font-size: 1.4rem;
+    color: rgb(119, 73, 73);
+
+}

@@ -1,0 +1,13 @@
+extends layout.pug
+
+block HRapp 
+
+
+  div.container
+    h1 All Employees of the Company 
+
+    each employee in employees 
+
+      div.wrapper
+        a.employee(href=`/employees/${ employee.id }`)= employee.name
+        a.edit(href='/employees/edit/'+employee.id) EDIT

@@ -1,0 +1,33 @@
+extends layout.pug
+
+block HRapp 
+
+  div.container
+    h1 Add New Employee
+
+    if error
+      p.err Please, fill the form with proper information!!!
+
+    if success
+      p.success New Employee added, Well DONE!
+
+
+    form.form(action="/add" method='POST')
+
+      label Name
+
+      textarea.data(type="text" name="name")
+
+      label Surname
+      textarea.data(type="text" name="surname")
+
+      label DoB
+      input.data(type="date" name="dob")
+      label Position
+      textarea.data(type="text" name="position")
+      label About
+      textarea.data(type="text" name="about")
+
+      br
+
+      button.btn Add Employee

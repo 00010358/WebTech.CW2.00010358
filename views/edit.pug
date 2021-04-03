@@ -1,0 +1,32 @@
+extends layout.pug
+
+block HRapp 
+
+  div.container
+
+  
+    h1 Edit selected Employee
+    if error
+      p.err Please, fill the form with proper information!!!
+
+    if success
+      p.success Employee Updated, Well DONE!
+
+    form.form(action='/employees/edit/'+employee.id, method='POST')
+
+      label Name
+
+      textarea.data(type="text" name="name")= employee.name
+
+      label Surname
+      textarea.data(type="text" name="surname")= employee.surname
+
+      label DoB
+      input.data(type="date" name="dob" value=employee.dob)
+      label Position
+      textarea.data(type="text" name="position")= employee.position
+      label About
+      textarea.data(type="text" name="about")= employee.about
+
+      br
+      button.btn EDIT
