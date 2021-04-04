@@ -225,13 +225,12 @@ label {
     padding: 5px 10px;
     background-color: lightblue;
     color: darkslategray;
+    justify-content: space-between;
+    display: flex;
 
 
 }
-.btnEdit {
-    margin-left: 400px;
-    position: absolute;
-}
+
 
 
 .err {

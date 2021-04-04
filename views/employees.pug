@@ -6,9 +6,12 @@ block HRapp
   div.container.employeepage
     h1.head-text All Employees of the Company 
 
+    if deleted
+      p.success Deleted
+
     each employee in employees 
 
       div.wrapper
         a.employee(href=`/employees/${ employee.id }`)= employee.name
         a.btnEdit(href='/employees/edit/'+employee.id) EDIT
-        a.btnDelete(href='/employees/delete/'+employee.id) DELETE
+        a.btnDelete(href=`/${ employee.id }/delete`) DELETE

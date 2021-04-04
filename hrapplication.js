@@ -202,23 +202,23 @@ hrapplication.post('/employees/edit/:id', (req, res) => {
 
 
 
-// hrapplication.get('employees/delete/:id', (req, res) => {
-// 	const id = req.params.id
+hrapplication.get('/:id/delete', (req, res) => {
+	const id = req.params.id
 
-// 	fs.readFile('./data/employees.json', (err, data) => {
-// 		if (err) throw err
+	fs.readFile('./data/employees.json', (err, data) => {
+		if (err) throw err
 
-// 		const employees = JSON.parse(data)
+		const employees = JSON.parse(data)
 
-// 		const filteredEmployee = employees.filter(employee => employee.id != id)
+		const filteredEmployee = employees.filter(employee => employee.id != id)
 
-// 		fs.writeFile('./data/employees.json', JSON.stringify(filteredEmployee), err => {
-// 			if (err) throw err
+		fs.writeFile('./data/employees.json', JSON.stringify(filteredEmployee), err => {
+			if (err) throw err
 
-// 			res.render('employees', { id: id, employees: filteredEmployee })
-// 		})
-// 	})
-// })
+			res.render('employees', { employees: filteredEmployee, deleted: true })
+		})
+	})
+})
 
 
 
