@@ -12,47 +12,18 @@ hrapplication.set('view engine', 'pug')
 hrapplication.use('/static', express.static('public'))
 hrapplication.use(express.urlencoded({ extended: false }))
 
+//route url for employees
 const employees = require('./routes/employees')
 hrapplication.use('/employees', employees)
+
+//route url for add button
+const add = require('./routes/add')
+hrapplication.use('/add', add)
 
 //localhost:4000 will show below mentioned things
 hrapplication.get('/', (req, res) => {
 	res.render('home')
 })
-
-
-hrapplication.get('/add', (req, res) => {
-	res.render('add')
-})
-
-/*creating add page for adding employees with validation*/
-hrapplication.post('/add', (req, res) =>{
-	if (v.isValid(req.body)) {
-		fs.readFile(DB, (err, data) => {
-			if (err) res.statusCode(500)
-
-			const employees = JSON.parse(data)
-
-			employees.push({
-				id: id (),
-				name: req.body.name,
-				surname: req.body.surname,
-				dob: req.body.dob,
-				position: req.body.position,
-				about: req.body.about
-			})
-
-			fs.writeFile(DB, JSON.stringify(employees), err => {
-				if (err) res.statusCode(500)
-
-				res.render('add', { success: true })
-			})
-		})		
-	} else {
-		res.render("add", { error: true, success: false})
-	}	
-})
-
 
 /*REST API*/
 hrapplication.get('/api/v1/employees', (req, res) => {	
