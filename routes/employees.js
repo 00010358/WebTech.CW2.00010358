@@ -1,98 +1,73 @@
+const express = require("express")
+const router = express.Router()
+const fs = require('fs')
+const db = require('../utils').DB
 
-// const express = require("express")
-// const router = express.Router()
-// const fs = require('fs')
+router.get('/', (req, res) => {
+	fs.readFile(db, (err, data) => {
+		if (err) res.statusCode(500)
 
+		const employees = JSON.parse(data)
 
-
-
-
-// router.get('/', (req, res) => {
-
-
-// 	fs.readFile('./data/employees.json', (err, data) => {
-// 		if (err) throw err
-
-// 		const employees = JSON.parse(data)
-
-// 		res.render('employees', { employees: employees})
-
-// 	})
-// } )
+		res.render('employees', { employees: employees})
+	})
+} )
 
 
-// router.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
+	const id = req.params.id
 
-// 	const id = req.params.id
+	fs.readFile(db, (err, data) => {
+		if (err) res.statusCode(500)
 
+		const employees = JSON.parse(data)
+		const employee = employees.filter(employee => employee.id == id)[0]
 
-
-// 	fs.readFile('./data/employees.json', (err, data) => {
-// 		if (err) throw err
-
-// 		const employees = JSON.parse(data)
-
-
-// 		const employee = employees.filter(employee => employee.id == id)[0]
-
-// 		res.render('details', { employee: employee})
+		res.render('details', { employee: employee})
+	})
+})
 
 
+/*load edit form*/
+router.get('/edit/:id', (req, res) => {
+	const id = req.params.id
 
-// 	})
-// })
+	fs.readFile(db, (err, data) => {
+		if (err) res.statusCode(500)
 
+		const employees = JSON.parse(data)
+		const employee = employees.filter(employee => employee.id == id)[0]
 
-// /*load edit form*/
-// router.get('/edit/:id', (req, res) => {
+		res.render('edit', { employee: employee})
+	})
+})
 
-// 	const id = req.params.id
-
-
-
-// 	fs.readFile('./data/employees.json', (err, data) => {
-// 		if (err) throw err
-
-// 		const employees = JSON.parse(data)
-
-
-// 		const employee = employees.filter(employee => employee.id == id)[0]
-
-// 		res.render('edit', { employee: employee})
-
-// 	})
-// })
-
-// router.get('/employees/edit/:id', (req, res) => {
-// 	const id = req.params.id
+router.post('/edit/:id', (req, res) => {
+	const id = req.params.id
 	
-// 	fs.readFile('./data/employees.json', (err, data) => {
-// 	    if (err) res.sendStatus(500)
+	fs.readFile(db, (err, data) => {
+	    if (err) res.sendStatus(500)
 
-// 	    const employees = JSON.parse(data)
-// 	    const employee = employees.filter(employee => employee.id == id)[0]
-// 	    const employeeIdx = employees.indexOf(employee)
-// 	    const splicedEmployee = employees.splice(employeeIdx, 1)[0]
+	    const employees = JSON.parse(data)
+	    const employee = employees.filter(employee => employee.id == id)[0]
+	    const employeeIdx = employees.indexOf(employee)
+	    const splicedEmployee = employees.splice(employeeIdx, 1)[0]
 	    
-// 		splicedEmployee.name = req.body.name
-// 		splicedEmployee.surname = req.body.surname
-// 		splicedEmployee.dob = req.body.dob
-// 		splicedEmployee.position = req.body.position
-// 		splicedEmployee.about = req.body.about
+		splicedEmployee.name = req.body.name
+		splicedEmployee.surname = req.body.surname
+		splicedEmployee.dob = req.body.dob
+		splicedEmployee.position = req.body.position
+		splicedEmployee.about = req.body.about
 
-// 	    employees.push(splicedEmployee)
+	    employees.push(splicedEmployee)
 
-// 		fs.writeFile('./data/employees.json', JSON.stringify(employees), err => {
-// 			if (err) throw err
+		fs.writeFile(db, JSON.stringify(employees), err => {
+			if (err) res.statusCode(500)
 
-// 			res.redirect('/')
-// 		})
-	
-// 	})
-
-
-// })
+			res.redirect('/')
+		})
+	})
+})
 
 
-
-// module.exports = router
+module.exports = router

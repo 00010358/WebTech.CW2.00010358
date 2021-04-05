@@ -4,7 +4,6 @@ block HRapp
 
   div.container
 
-  
     h1.edit-text Edit selected Employee
     if error
       p.err Please, fill the form with proper information!!!
@@ -15,7 +14,6 @@ block HRapp
     form.form(action='/employees/edit/'+employee.id, method='POST')
 
       label Name
-
       textarea.data(type="text" name="name")= employee.name
 
       label Surname
@@ -23,9 +21,11 @@ block HRapp
 
       label DoB
       input.data(type="date" name="dob" value=employee.dob)
+
       label Position
       textarea.data(type="text" name="position")= employee.position
       label About
+
       textarea.data(type="text" name="about")= employee.about
 
       br

@@ -1,21 +1,19 @@
-
 const express = require('express')
 const hrapplication = express()
-const path = require('path')
+
 const fs = require('fs')
 
-const router = express.Router()
-
-
+const Validator = require('./utils').Validator
+const DB = require('./utils').DB
+const id = require('./utils').id
+const v = new Validator()
 
 hrapplication.set('view engine', 'pug')
-
-
 hrapplication.use('/static', express.static('public'))
-
 hrapplication.use(express.urlencoded({ extended: false }))
 
-
+const employees = require('./routes/employees')
+hrapplication.use('/employees', employees)
 
 //localhost:4000 will show below mentioned things
 hrapplication.get('/', (req, res) => {
@@ -29,206 +27,65 @@ hrapplication.get('/add', (req, res) => {
 
 /*creating add page for adding employees with validation*/
 hrapplication.post('/add', (req, res) =>{
-	const name = req.body.name
-	const surname = req.body.surname
-	const dob = req.body.dob
-	const position = req.body.position
-	const about = req.body.about
-
-
-	if (name.trim() === '') {
-		res.render('add', { error: true}) 
-
-	} 
-	else if (surname.trim() === ''){
-		res.render('add', { error: true})
-
-		
-	}
-	else if (dob.trim() === ''){
-		res.render('add', { error: true})
-
-		
-	}
-	else if (position.trim() === ''){
-		res.render('add', { error: true})
-
-		
-	}
-	else if (about.trim() === ''){
-		res.render('add', { error: true})
-
-		
-	}
-	else {
-		fs.readFile('./data/employees.json', (err, data) => {
-			if (err) throw err
+	if (v.isValid(req.body)) {
+		fs.readFile(DB, (err, data) => {
+			if (err) res.statusCode(500)
 
 			const employees = JSON.parse(data)
 
 			employees.push({
-
 				id: id (),
-				name: name,
-				surname: surname,
-				dob: dob,
-				position: position,
-				about: about
-
+				name: req.body.name,
+				surname: req.body.surname,
+				dob: req.body.dob,
+				position: req.body.position,
+				about: req.body.about
 			})
 
-			fs.writeFile('./data/employees.json', JSON.stringify(employees), err => {
-				if (err) throw err
+			fs.writeFile(DB, JSON.stringify(employees), err => {
+				if (err) res.statusCode(500)
 
 				res.render('add', { success: true })
 			})
-
-
-
-		})
-	}
+		})		
+	} else {
+		res.render("add", { error: true, success: false})
+	}	
 })
 
 
-function id () {
-	return '_' + Math.random().toString(36).substr(2, 9);
-  };
-
-
-
-
 /*REST API*/
-hrapplication.get('/api/v1/employees', (req, res) => {
-	
-	fs.readFile('./data/employees.json', (err, data) => {
-		if (err) throw err
+hrapplication.get('/api/v1/employees', (req, res) => {	
+	fs.readFile(DB, (err, data) => {
+		if (err) res.statusCode(500)
 
 		const employees = JSON.parse(data)
 
 		res.json(employees)
 
 	})
-
 })
-
-
-
-
-hrapplication.get('/employees', (req, res) => {
-
-
-	fs.readFile('./data/employees.json', (err, data) => {
-		if (err) throw err
-
-		const employees = JSON.parse(data)
-
-		res.render('employees', { employees: employees})
-
-	})
-} )
-
-
-hrapplication.get('/employees/:id', (req, res) => {
-
-	const id = req.params.id
-
-
-
-	fs.readFile('./data/employees.json', (err, data) => {
-		if (err) throw err
-
-		const employees = JSON.parse(data)
-
-
-		const employee = employees.filter(employee => employee.id == id)[0]
-
-		res.render('details', { employee: employee})
-
-
-
-	})
-})
-
-
-/*load edit form*/
-hrapplication.get('/employees/edit/:id', (req, res) => {
-
-	const id = req.params.id
-
-
-
-	fs.readFile('./data/employees.json', (err, data) => {
-		if (err) throw err
-
-		const employees = JSON.parse(data)
-
-
-		const employee = employees.filter(employee => employee.id == id)[0]
-
-		res.render('edit', { employee: employee})
-
-	})
-})
-
-hrapplication.post('/employees/edit/:id', (req, res) => {
-	const id = req.params.id
-	
-	fs.readFile('./data/employees.json', (err, data) => {
-	    if (err) res.sendStatus(500)
-
-	    const employees = JSON.parse(data)
-	    const employee = employees.filter(employee => employee.id == id)[0]
-	    const employeeIdx = employees.indexOf(employee)
-	    const splicedEmployee = employees.splice(employeeIdx, 1)[0]
-	    
-		splicedEmployee.name = req.body.name
-		splicedEmployee.surname = req.body.surname
-		splicedEmployee.dob = req.body.dob
-		splicedEmployee.position = req.body.position
-		splicedEmployee.about = req.body.about
-
-	    employees.push(splicedEmployee)
-
-		fs.writeFile('./data/employees.json', JSON.stringify(employees), err => {
-			if (err) throw err
-
-			res.redirect('/')
-		})
-	
-	})
-
-
-})
-
-
 
 hrapplication.get('/:id/delete', (req, res) => {
 	const id = req.params.id
 
-	fs.readFile('./data/employees.json', (err, data) => {
-		if (err) throw err
+	fs.readFile(DB, (err, data) => {
+		if (err) res.statusCode(500)
 
 		const employees = JSON.parse(data)
-
 		const filteredEmployee = employees.filter(employee => employee.id != id)
 
-		fs.writeFile('./data/employees.json', JSON.stringify(filteredEmployee), err => {
-			if (err) throw err
+		fs.writeFile(DB, JSON.stringify(filteredEmployee), err => {
+			if (err) res.statusCode(500)
 
 			res.render('employees', { employees: filteredEmployee, deleted: true })
 		})
 	})
 })
 
-
-
-
-
-
-
-
 hrapplication.listen(4000, err => {
 	if (err) console.log(err)
 
 	console.log('Server is running on port 4000...')
 })
+

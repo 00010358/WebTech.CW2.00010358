@@ -231,6 +231,10 @@ label {
 
 }
 
+.description:last-child {
+    border-bottom: none;
+}
+
 
 
 .err {
