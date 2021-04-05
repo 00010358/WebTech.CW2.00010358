@@ -14,7 +14,7 @@ npm install
 ```
 3.Run the application
 ```bash
-node hrapplication.js
+node hrapplication
 ```
 ##### Dependencies used in this project
 - express.js
