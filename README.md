@@ -10,7 +10,6 @@ git clone https://github.com/00010358/WebTech.CW2.00010358.git
 ```
 2.Install the dependencies
 ```bash
-cd [project folder]
 npm install
 ```
 3.Run the application
