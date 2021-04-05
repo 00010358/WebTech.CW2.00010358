@@ -3,6 +3,7 @@ const router = express.Router()
 const fs = require('fs')
 const db = require('../utils').DB
 
+//here doing route grouping
 router.get('/', (req, res) => {
 	fs.readFile(db, (err, data) => {
 		if (err) res.statusCode(500)
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
 	})
 } )
 
-
+// creating details page it will grab the id of the selected employee and shows the all information inside 
 router.get('/:id', (req, res) => {
 	const id = req.params.id
 
@@ -41,7 +42,7 @@ router.get('/edit/:id', (req, res) => {
 		res.render('edit', { employee: employee})
 	})
 })
-
+//creating working edit button it using the splice it will update the employee data and get the written information from the form
 router.post('/edit/:id', (req, res) => {
 	const id = req.params.id
 	

@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const fs = require('fs')
 
-
+//calling validation, db and id
 const Validator = require('../utils').Validator
 const DB = require('../utils').DB
 const id = require('../utils').id
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 	res.render('add')
 })
 
-/*creating add page for adding employees with validation*/
+//creating add page for adding employees with validation. It will get the information from the form and will push it to the employees.json
 router.post('/', (req, res) =>{
 	if (v.isValid(req.body)) {
 		fs.readFile(DB, (err, data) => {
@@ -36,7 +36,7 @@ router.post('/', (req, res) =>{
 			})
 		})		
 	} else {
-		res.render("add", { error: true, success: false})
+		res.render("add", { error: true, success: false})// if invalid data is written, user will see the error
 	}	
 })
 

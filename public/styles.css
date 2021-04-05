@@ -3,43 +3,215 @@
     color: rgb(255, 255, 255);
 }
 
-
-
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.navbar {
-    
-    position: fixed;
-    margin-top: 13%;
-    left: 0;
-    top: 0;
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+  }
+
+.topnav {
     
 
-    height: 40%;
+    padding: 0;
     width: 200px;
     background-color: rgba(50, 211, 171, 0.144);
-    border: 1.5px dotted rgb(61, 187, 187);
-    background-image: url();
-
-
-
+    position: fixed;
+    height: 25%;
+    overflow: auto;
+    margin: 200px 20px 20px 20px;
+    border-radius: 10px;
 }
 
-.menu {
-    width: 100%;
-    margin: -30px 0 0 0;
-    margin: -1.25rem 0 0 0;
-    display: inline-block;
-    text-align: center;
-    margin-top: 30%;
-
+.topnav a {
+    display: block;
+    color: rgb(255, 255, 255);
+    padding: 16px;
+    text-decoration: none;
 }
+
+.topnav a:hover {
+    background-color: #23737e;
+    color: rgb(255, 255, 255);
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+/* responsive */
+@media screen and (max-width: 700px) {
+    .topnav {
+        margin: 10px;
+        width: 94%;
+        height: auto;
+        position: fixed;
+        font-size: 0.6rem; 
+    }
+    label {
+        font-size: 1.5rem;
+        color: rgb(82, 140, 197);
+        font-family: TITILLIUM SANS AND DOSIS;
+
+    }
+
+    .form > .data{
+        padding: 2px;
+        font-size: 0.7rem;
+        font-family: inherit;
+        border: 1px solid lightblue;
+        width: 280px;
+        margin-bottom: 10px;
+    }
+    .form > label {
+        font-size: 0.9rem;
+    }
+    .container {
+        margin-right: 40%;
+        font-size: 0.9rem;
+    }
+    
+    
+    .form > .btn {
+
+        font-size: 0.5rem;
+        border:none;
+        padding:6px 9px;
+        font-family: inherit;
+    
+    }
+    .form {
+        margin-top: 10px;
+        width: 800px;
+    }
+
+
+    .container > .main-text {
+        font-size: 0.8rem;
+        padding: 30px 0 10px 0;
+        font-size: .8rem;
+        width: 350px;
+        margin: 80px 0 0 80px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .container > .adding-person {
+    
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: rgba(7, 207, 131, 0.144);
+        color:rgb(255, 255, 255);
+        margin-right: 50px;
+        border: 1.5px dotted lightseagreen;
+        margin-left: 40%;
+        font-size: 0.6rem;
+        margin-top: 10px;    
+    
+    }
+    .container > .head-text { 
+        font-size: 0.9rem;
+        margin-left: 190px;
+        margin-top: 20%;
+    }
+
+    .container > .err {
+        margin-left: 37%;
+        display: inline-block;
+        padding: 3px;
+        border: 1px dotted rgb(255, 255, 255);
+        font-size: 0.7rem;
+        color: rgb(241, 0, 0);
+        width: 80%;
+    }
+
+    .container > .success {
+        margin-left: 37%;
+        display: inline-block;
+        padding: 3px;
+        border: 1px dotted rgb(255, 255, 255);
+        font-size: 0.7rem;
+        color: rgb(4, 173, 55);
+        width: 70%;
+    }
+
+    .container > .wrapper {
+        font-size: 0.5rem;
+
+        max-width: 60%;
+        padding: 5px;
+        border-bottom: 0.5px dotted gray;
+        align-items: center;
+        margin-left: 40%;
+        
+    
+    }
+    .employeepage {
+        width: 80%;
+    }
+    
+    .employeepage > .head-text {
+        font-size: 0.7rem;
+
+    }
+    .wrapper > .btnEdit, .wrapper > .btnDelete {
+        padding: 3px 3px;
+        background-color: lightblue;
+        color: darkslategray;
+        justify-content: space-between;
+        display: flex;
+
+    }
+    .container > .edit-text {
+        font-size: 0.9rem;
+        margin-left: 150px;
+        margin-top: 26%;
+        width: 300px;
+        margin-bottom: -10px;
+        
+    }
+    .wrapper > .btnEdit {
+        margin-left: 100px;
+    }
+    .wrapper .employee {
+        padding: 0 4px 0 4px;
+        font-size: 0.6rem;
+    
+    }
+
+    .btnEdit:hover, .btnDelete:hover, .adding-person:hover {
+    
+        color: rgb(228, 105, 131);
+        background-color: rgb(255, 255, 255);
+    }
+
+    .detail-container > label {
+        font-size: 0.9rem;
+
+    }
+    .detail-container > .description {
+        width: 200px;
+        font-size: 0.7rem;
+    }
+
+    html > .img {
+        background-image: url("images/design.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        height: 747px;
+    }
+
+    .menu {
+        margin-right: 13%;
+    }
+    .topnav a {float: left;}
+    div.content {margin-left: 0;}
+}
+
 
 .img {
     background-image: url("images/design.jpg");
@@ -47,11 +219,7 @@
     background-position: center;
     background-size: 100% 100%;
     height: 747px;
-    
 }
-
-
-
 
 a {
     text-decoration: none;
@@ -59,13 +227,9 @@ a {
     border-radius: 10px;
 }
 
-
 a:hover {
     color: rgb(228, 105, 131);
     background-color: rgb(255, 255, 255);
-    
-
-
 }
 
 /*homepage styles*/
@@ -84,34 +248,27 @@ a:hover {
     margin-left: 450px;
     margin-top: 100px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-
 }
+
+.adding-person { 
+
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(7, 207, 131, 0.144);
+    color:rgb(255, 255, 255);
+    border: 1.5px dotted lightseagreen;
+    margin-left: 40px;
+    position: fixed;
+}
+
+
 .head-text {
     padding: 20px 0 10px 0;
     font-size: 1.8rem;
     width: 70%;
     margin-left: 450px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
-
-.adding-person { 
-
-    display: inline-block;
-
-    padding: 10px 20px;
-
-    background-color: rgba(7, 207, 131, 0.144);
-
-    color:rgb(255, 255, 255);
-    margin-right: 400px;
-    margin-top: 90px;
-    border: 1.5px dotted lightseagreen;
-    margin-left: 40px;
-    position: absolute;
-}
-
 
 
 /*add page styles*/
@@ -120,7 +277,6 @@ a:hover {
 .form {
     max-width: 60%;
     margin-left: 40%;
-
 }
 
 .data{
@@ -128,7 +284,6 @@ a:hover {
     padding: 10px;
     font-size: 1.3rem;
     font-family: inherit;
-
     border: 1px solid lightblue;
     width: 70%;
     margin-bottom: 10px;
@@ -147,11 +302,9 @@ a:hover {
 
 }
 .btn:hover {
-    
     color: rgb(228, 105, 131);
     background-color: rgb(255, 255, 255);
 }
-
 
 /*employees page*/
 
@@ -165,8 +318,14 @@ a:hover {
     align-items: center;
     margin-left: 40%;
 }
+
+.wrapper:last-child {
+    border-bottom: none;
+}
+
 .employeepage {
     margin-top: 10px;
+    
 }
 
 
@@ -206,19 +365,13 @@ label {
     font-size: 1.8rem;
     width: 70%;
     margin-left: 450px;
-
-
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 
 }
 
 .employee {
-
-
     padding: 0 8px 0 8px;
     font-size: 1.3rem;
-
 }
 
 .btnEdit, .btnDelete{
@@ -227,26 +380,20 @@ label {
     color: darkslategray;
     justify-content: space-between;
     display: flex;
-
-
 }
 
 .description:last-child {
     border-bottom: none;
 }
 
-
-
 .err {
     margin-left: 37%;
-
     display: inline-block;
     padding: 5px;
     border: 1px dotted rgb(255, 255, 255);
     font-size: 1.4rem;
     color: rgb(241, 0, 0);
 }
-
 
 .success {
     margin-left: 37%;
