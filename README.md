@@ -24,5 +24,5 @@ node hrapplication
 [Link to GitHub repo](https://github.com/00010358/WebTech.CW2.00010358.git)
 
 ##### HR Application Glitch Link
-[Link to Glitch](https://laced-night-lilac.glitch.me/)
+[Link to Glitch](https://hollow-alabaster-loaf.glitch.me/)
 
