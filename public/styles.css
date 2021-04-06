@@ -44,6 +44,208 @@ div.content {
     padding: 1px 16px;
     height: 1000px;
 }
+
+
+.img {
+    background-image: url("images/design.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 747px;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 10px;
+}
+
+a:hover {
+    color: rgb(228, 105, 131);
+    background-color: rgb(255, 255, 255);
+}
+
+/*homepage styles*/
+
+
+.container {
+    max-width: 1000px;
+    padding: 10px;
+}
+
+
+.main-text {
+    padding: 100px 0 30px 0;
+    font-size: 1.8rem;
+    width: 70%;
+    margin-left: 450px;
+    margin-top: 100px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.container > .employees-text {
+
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    width: 70%;
+    margin-left: 450px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.adding-person { 
+
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(7, 207, 131, 0.144);
+    color:rgb(255, 255, 255);
+    border: 1.5px dotted lightseagreen;
+    margin-left: 40px;
+    position: fixed;
+}
+
+
+.head-text {
+    padding: 20px 0 10px 0;
+    font-size: 1.8rem;
+    width: 70%;
+    margin-left: 450px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/*add page styles*/
+
+
+.form {
+    max-width: 60%;
+    margin-left: 40%;
+}
+
+.data{
+    display: block;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: inherit;
+    border: 1px solid lightblue;
+    width: 70%;
+    margin-bottom: 10px;
+
+}
+
+
+.btn {
+    display: inline-block;
+    background-color: lightblue;
+    color: darkslategray;
+    font-size: 1.3rem;
+    border:none;
+    padding:10px 20px;
+    font-family: inherit;
+
+}
+.btn:hover {
+    color: rgb(228, 105, 131);
+    background-color: rgb(255, 255, 255);
+}
+
+/*employees page*/
+
+.wrapper {
+
+    display: flex;
+    justify-content: space-between;
+    max-width: 60%;
+    padding: 10px;
+    border-bottom: 1px dotted gray;
+    align-items: center;
+    margin-left: 40%;
+}
+
+.wrapper:last-child {
+    border-bottom: none;
+}
+
+
+
+.edit-text {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+    width: 70%;
+    margin-left: 450px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+
+}
+
+.description {
+    margin: 10px;
+    width: 500px;
+    margin-right: 400px;
+    padding: 10px;
+    border-bottom: 2px dotted rgb(248, 248, 248);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+.detail-container {
+    margin-top: 20px;
+}
+label {
+    font-size: 1.5rem;
+    color: rgb(82, 140, 197);
+    font-family: TITILLIUM SANS AND DOSIS;
+}
+
+.details-text {
+    padding: 20px 0 30px 0;
+    font-size: 1.8rem;
+    width: 70%;
+    margin-left: 450px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.employee {
+    padding: 0 8px 0 8px;
+    font-size: 1.3rem;
+}
+
+.btnEdit, .btnDelete{
+    padding: 5px 10px;
+    background-color: lightblue;
+    color: darkslategray;
+    justify-content: space-between;
+    display: flex;
+}
+
+.description:last-child {
+    border-bottom: none;
+}
+
+.err {
+    margin-left: 37%;
+    display: inline-block;
+    padding: 5px;
+    border: 1px dotted rgb(255, 255, 255);
+    font-size: 1.4rem;
+    color: rgb(241, 0, 0);
+}
+
+.success {
+    margin-left: 37%;
+    display: inline-block;
+    padding: 5px;
+    border: 1px dotted rgb(255, 255, 255);
+    font-size: 1.4rem;
+    color: rgb(4, 173, 55);
+
+}
+
+
+
 /* responsive */
 @media screen and (max-width: 700px) {
     .topnav {
@@ -67,6 +269,15 @@ div.content {
         border: 1px solid lightblue;
         width: 280px;
         margin-bottom: 10px;
+    }
+    .container > .employees-text {
+
+        font-size: 0.8rem;
+        padding: 30px 0 10px 0;
+        font-size: .8rem;
+        width: 350px;
+        margin: 40px 0 0 140px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     .form > label {
         font-size: 0.9rem;
@@ -202,7 +413,7 @@ div.content {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100% 100%;
-        height: 747px;
+        height: 500px;
     }
 
     .menu {
@@ -221,186 +432,180 @@ div.content {
     height: 747px;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-    border-radius: 10px;
-}
+@media screen and (max-width: 400px) {
 
-a:hover {
-    color: rgb(228, 105, 131);
-    background-color: rgb(255, 255, 255);
-}
+    .topnav {
+        margin: 5px;
+        width: 97%;
+        height: auto;
+        position: fixed;
+        font-size: 0.5rem; 
+    }
 
-/*homepage styles*/
+    form > label, .detail-container > label {
+        color: rgb(82, 140, 197);
+        font-family: TITILLIUM SANS AND DOSIS;
 
-
-.container {
-    max-width: 1000px;
-    padding: 10px;
-}
+    }
 
 
-.main-text {
-    padding: 100px 0 30px 0;
-    font-size: 1.8rem;
-    width: 70%;
-    margin-left: 450px;
-    margin-top: 100px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.adding-person { 
-
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(7, 207, 131, 0.144);
-    color:rgb(255, 255, 255);
-    border: 1.5px dotted lightseagreen;
-    margin-left: 40px;
-    position: fixed;
-}
-
-
-.head-text {
-    padding: 20px 0 10px 0;
-    font-size: 1.8rem;
-    width: 70%;
-    margin-left: 450px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-
-/*add page styles*/
-
-
-.form {
-    max-width: 60%;
-    margin-left: 40%;
-}
-
-.data{
-    display: block;
-    padding: 10px;
-    font-size: 1.3rem;
-    font-family: inherit;
-    border: 1px solid lightblue;
-    width: 70%;
-    margin-bottom: 10px;
-
-}
-
-
-.btn {
-    display: inline-block;
-    background-color: lightblue;
-    color: darkslategray;
-    font-size: 1.3rem;
-    border:none;
-    padding:10px 20px;
-    font-family: inherit;
-
-}
-.btn:hover {
-    color: rgb(228, 105, 131);
-    background-color: rgb(255, 255, 255);
-}
-
-/*employees page*/
-
-.wrapper {
-
-    display: flex;
-    justify-content: space-between;
-    max-width: 60%;
-    padding: 10px;
-    border-bottom: 1px dotted gray;
-    align-items: center;
-    margin-left: 40%;
-}
-
-.wrapper:last-child {
-    border-bottom: none;
-}
-
-.employeepage {
-    margin-top: 10px;
+    .form > .data{
+        padding: 0.5px;
+        font-size: 0.5rem;
+        font-family: inherit;
+        border: 1px solid lightblue;
+        width: 230px;
+        margin-bottom: 10px;
+    }
+    .form > label {
+        font-size: 0.6rem;
+    }
+    .container {
+        margin-right: 50%;
+        font-size: 0.6rem;
+    }
     
-}
+    
+    .form > .btn {
+
+        font-size: 0.4rem;
+        border:none;
+        padding:4px 6px;
+        font-family: inherit;
+    
+    }
+    .form {
+        margin-top: 10px;
+        width: 800px;
+    }
 
 
-.edit-text {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    font-size: 1.8rem;
-    width: 70%;
-    margin-left: 450px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    .container > .main-text {
+        padding: 30px 0 10px 0;
+        font-size: .6rem;
+        width: 300px;
+        margin: 80px 0 0 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 
 
+    .container > .adding-person {
+    
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: rgba(7, 207, 131, 0.144);
+        color:rgb(255, 255, 255);
+        margin-right: 50px;
+        border: 1.5px dotted lightseagreen;
+        margin-left: 40%;
+        font-size: 0.6rem;
+        margin-top: 10px;    
+    
+    }
+    .container > .head-text { 
+        font-size: 0.7rem;
+        margin-left: 100px;
+        margin-top: 30%;
+        width: 200px;
+    }
 
-}
+    .container > .err {
+        margin-left: 37%;
+        display: inline-block;
+        padding: 3px;
+        border: 1px dotted rgb(255, 255, 255);
+        font-size: 0.7rem;
+        color: rgb(241, 0, 0);
+        width: 80%;
+    }
 
-.description {
-    margin: 10px;
-    width: 500px;
-    margin-right: 400px;
-    padding: 10px;
-    border-bottom: 2px dotted rgb(248, 248, 248);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    .container > .success {
+        margin-left: 37%;
+        display: inline-block;
+        padding: 3px;
+        border: 1px dotted rgb(255, 255, 255);
+        font-size: 0.7rem;
+        color: rgb(4, 173, 55);
+        width: 70%;
+    }
+
+    .container > .wrapper {
+        font-size: 0.5rem;
+        max-width: 90%;
+        padding: 3.5px;
+        border-bottom: 0.5px dotted gray;
+        align-items: center;
+        margin-left: 25%;
+
+    }
+    .container > .employees-text {
+        font-size: 0.7rem;
+        margin-left: 70px;
+        margin-top: 20%;
+        width: 200px;
+        margin-bottom: 10px;
+
+    }
+    .wrapper > .btnEdit, .wrapper > .btnDelete {
+        font-size: 0.35rem;
+        padding: 2px 2px;
+        background-color: lightblue;
+        color: darkslategray;
+        justify-content: space-between;
+        display: flex;
+
+    }
+    .container > .edit-text {
+        font-size: 0.7rem;
+        margin-top: 40%;
+        width: 200px;
+        margin-left: 100px;
+    }
+    .wrapper > .btnEdit {
+        margin-left: 100px;
+        margin-right: -10px;
+    }
+    .wrapper, .employee {
+        padding: 0 4px 0 4px;
+        font-size: 0.6rem;
+    
+    }
 
 
-}
-.detail-container {
-    margin-top: 20px;
-}
-label {
-    font-size: 1.5rem;
-    color: rgb(82, 140, 197);
-    font-family: TITILLIUM SANS AND DOSIS;
-}
+    .btnEdit:hover, .btnDelete:hover, .adding-person:hover {
+    
+        color: rgb(228, 105, 131);
+        background-color: rgb(255, 255, 255);
+    }
 
-.details-text {
-    padding: 20px 0 30px 0;
-    font-size: 1.8rem;
-    width: 70%;
-    margin-left: 450px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    .detail-container > label {
+        font-size: 0.7rem;
 
-}
+    }
+    .details-text > .detail-container {
+        margin-left: -30px;
+    }
+    .detail-container > .description {
+        width: 200px;
+        font-size: 0.5rem;
+        margin: 3px;
+        padding: 7px;
+        border-bottom: 2px dotted rgb(248, 248, 248);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-.employee {
-    padding: 0 8px 0 8px;
-    font-size: 1.3rem;
-}
+    }
 
-.btnEdit, .btnDelete{
-    padding: 5px 10px;
-    background-color: lightblue;
-    color: darkslategray;
-    justify-content: space-between;
-    display: flex;
-}
+    html > .img {
+        background-image: url("images/design.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        height: 400px;
+    }
 
-.description:last-child {
-    border-bottom: none;
-}
-
-.err {
-    margin-left: 37%;
-    display: inline-block;
-    padding: 5px;
-    border: 1px dotted rgb(255, 255, 255);
-    font-size: 1.4rem;
-    color: rgb(241, 0, 0);
-}
-
-.success {
-    margin-left: 37%;
-    display: inline-block;
-    padding: 5px;
-    border: 1px dotted rgb(255, 255, 255);
-    font-size: 1.4rem;
-    color: rgb(4, 173, 55);
-
+    .menu {
+        margin-right: 8%;
+    }
+    .topnav a {float: left;}
+    div.content {margin-left: 0;}
 }
