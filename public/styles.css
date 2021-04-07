@@ -23,7 +23,6 @@ body {
     width: 200px;
     background-color: rgba(50, 211, 171, 0.144);
     position: fixed;
-    height: 25%;
     overflow: auto;
     margin: 200px 20px 20px 20px;
     border-radius: 10px;
